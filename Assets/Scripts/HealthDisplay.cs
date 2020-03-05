@@ -5,7 +5,7 @@ using UnityEngine;
 public class HealthDisplay : MonoBehaviour
 {
 
-    int health = 3; 
+    public int health = 3; 
     // Start is called before the first frame update
     void Start()
     {
@@ -17,9 +17,13 @@ public class HealthDisplay : MonoBehaviour
     {
        for(int i =0; i < 3; i++)
         {
-            if(i <= health)
+            if(i < health)
             {
-                GetComponentInChildren<i>()
+                gameObject.transform.GetChild(i).gameObject.SetActive(true);
+            }
+            else
+            {
+                gameObject.transform.GetChild(i).gameObject.SetActive(false);
             }
         }
     }
